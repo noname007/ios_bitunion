@@ -15,6 +15,9 @@
 		882D64451E27632C001C03E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 882D64431E27632C001C03E6 /* LaunchScreen.storyboard */; };
 		882D64501E27632C001C03E6 /* buTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D644F1E27632C001C03E6 /* buTests.swift */; };
 		882D645B1E27632C001C03E6 /* buUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D645A1E27632C001C03E6 /* buUITests.swift */; };
+		8872F96F1E28B8B2002CACC5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F96E1E28B8B2002CACC5 /* LoginViewController.swift */; };
+		8872F9741E28BE42002CACC5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8872F9721E28BE42002CACC5 /* Alamofire.framework */; };
+		8872F9751E28BE42002CACC5 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8872F9731E28BE42002CACC5 /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		882D64561E27632C001C03E6 /* buUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = buUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		882D645A1E27632C001C03E6 /* buUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buUITests.swift; sourceTree = "<group>"; };
 		882D645C1E27632C001C03E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8872F96E1E28B8B2002CACC5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8872F9721E28BE42002CACC5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		8872F9731E28BE42002CACC5 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8872F9741E28BE42002CACC5 /* Alamofire.framework in Frameworks */,
+				8872F9751E28BE42002CACC5 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +91,7 @@
 				882D644E1E27632C001C03E6 /* buTests */,
 				882D64591E27632C001C03E6 /* buUITests */,
 				882D64361E27632C001C03E6 /* Products */,
+				8872F9711E28BE41002CACC5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +115,7 @@
 				882D64411E27632C001C03E6 /* Assets.xcassets */,
 				882D64431E27632C001C03E6 /* LaunchScreen.storyboard */,
 				882D64461E27632C001C03E6 /* Info.plist */,
+				8872F96E1E28B8B2002CACC5 /* LoginViewController.swift */,
 			);
 			path = bu;
 			sourceTree = "<group>";
@@ -128,6 +138,15 @@
 			path = buUITests;
 			sourceTree = "<group>";
 		};
+		8872F9711E28BE41002CACC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8872F9721E28BE42002CACC5 /* Alamofire.framework */,
+				8872F9731E28BE42002CACC5 /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +157,7 @@
 				882D64311E27632C001C03E6 /* Sources */,
 				882D64321E27632C001C03E6 /* Frameworks */,
 				882D64331E27632C001C03E6 /* Resources */,
+				88B5F0A81E2C8A82004DE020 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -260,11 +280,30 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		88B5F0A81E2C8A82004DE020 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		882D64311E27632C001C03E6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8872F96F1E28B8B2002CACC5 /* LoginViewController.swift in Sources */,
 				882D643D1E27632C001C03E6 /* SecondViewController.swift in Sources */,
 				882D64391E27632C001C03E6 /* AppDelegate.swift in Sources */,
 				882D643B1E27632C001C03E6 /* FirstViewController.swift in Sources */,
@@ -418,6 +457,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FUSNTLQVMC;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = bu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.soul11201.bu;
@@ -431,6 +474,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FUSNTLQVMC;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = bu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.soul11201.bu;
@@ -516,6 +563,7 @@
 				882D64611E27632C001C03E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		882D64621E27632C001C03E6 /* Build configuration list for PBXNativeTarget "buTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +572,7 @@
 				882D64641E27632C001C03E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		882D64651E27632C001C03E6 /* Build configuration list for PBXNativeTarget "buUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +581,7 @@
 				882D64671E27632C001C03E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
