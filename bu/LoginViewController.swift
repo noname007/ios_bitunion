@@ -9,9 +9,12 @@
 import UIKit
 import Alamofire
 import Foundation
-
+//import SwiftyJSON
 
 class LoginViewController: UIViewController {
+    static let  BUURL = "http://out.bitunion.org"
+    
+    static var session = [String:Any];
 
 
     @IBAction func sendPost(_ sender: UIButton) {
@@ -26,7 +29,7 @@ class LoginViewController: UIViewController {
         let parameters: Parameters = [
             "action": "login",
             "username":"soul11201",
-            "password":"1111111"
+            "password":"@sdfghjkl"
 
 //            "bar": [
 //                "baz": "qux"
@@ -38,13 +41,23 @@ class LoginViewController: UIViewController {
             response in
             
             print("Request: \(response.request?.httpBody)")
-            print("Request: \(response.request)")
+            print("Request: \(response.data)")
             print("Response: \(response.response)")
+            print("result: \(response.result)")
             
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                    print("Data: \(utf8Text)")
+                print("Data: \(utf8Text)")
+                LoginViewController.BUURL = JSONSerialization.jsonObject(with: response.data, options: JSONSerialization.ReadingOptions)
             }
         }
+        
+        
+        
+        
+        
+        
+        
+        
 //        Alamofire.request(url,.post, parameters: parameters, encoding: JSONEncoding);
         
         // Both calls are equivalent
@@ -67,6 +80,41 @@ class LoginViewController: UIViewController {
         
         
     }
+    
+    
+    func bu_thread(){
+        let uri = LoginViewController.BUURL + "/open_api/bu_thread.php";
+        
+        let parameters = [
+                "action":"thread",
+                "username":"username",
+                "session":"session",
+                "fid":"论坛id",
+                "from":"帖子起始编号，最新帖子编号为0",
+                "to":"帖子结束编号"
+            ]
+        
+        print(uri)
+        
+        Alamofire.request(uri, method: .post, parameters: parameters, encoding: JSONEncoding(options: [])).responseJSON{
+            response in
+            
+            print("Request: \(response.request?.httpBody)")
+            print("Request: \(response.request)")
+            print("Response: \(response.response)")
+            
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                SwiftyJson.
+                print("Data: \(utf8Text)")
+            }
+        }
+
+
+        
+        
+//
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
